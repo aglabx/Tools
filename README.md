@@ -14,7 +14,7 @@
 
 ```shell script
 
-./rmdup.exe <fastq_prefix like SRRXXXX> <output_prefix> <distance>
+./rmdup.exe <fastq_prefix like SRRXXXX> <output_prefix> <distance> <hd_cutoff 1-2 per 100 bp, for PE 5 the best> <shift=0,30>
 
 ```
 
@@ -24,6 +24,6 @@ If you have dataset_1.fastq and dataset_2.fastq then prefix will be <em>dataset<
 
 ./V2_trim.exe dataset dataset 32 0 fastq illumina_ext.dat
 
-./rmdup.exe dataset.trim dataset.rmdup 3000
+./rmdup.exe dataset.trim dataset.rmdup 3000 5 0,30
 
 ```
