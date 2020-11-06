@@ -34,7 +34,7 @@ if __name__ == '__main__':
             for name in files:
                 if re.search(".bam$", name):
                     apath = os.path.join(root, name)
-                    c = command % (apath, chrm, pos, pos, output_temp_file)
+                    c = command % (apath, chrom, pos, pos, output_temp_file)
                     os.system(c)
                     print("Computing:", apath)
 
