@@ -36,7 +36,7 @@ if __name__ == '__main__':
                     apath = os.path.join(root, name)
                     c = command % (apath, chrom, pos, pos, output_temp_file)
                     os.system(c)
-                    print("Computing:", apath)
+                    print("Computing: %s" % apath)
 
                     d = [
                         name.split(".")[0], # sample
