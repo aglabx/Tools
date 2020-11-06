@@ -32,8 +32,16 @@ if __name__ == '__main__':
     with open(output_file_table, "w") as fw:
         for root, dirs, files in os.walk(folder, topdown=False):
             for name in files:
-                if re.search(".bam$", name):
+                if re.search("\.bam$", name):
                     apath = os.path.join(root, name)
+                    
+                    # check_index 
+                    index_file = apath + ".bai"
+                    if not os.path.isfile(index_file):
+                        print(apath)
+                        print("Skipped, no index bai file.")
+                        continue
+                        
                     c = command % (apath, chrom, pos, pos, output_temp_file)
                     os.system(c)
                     print("Computing: %s" % apath)
