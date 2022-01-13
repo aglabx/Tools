@@ -119,3 +119,9 @@ simRat_chr6 https://raw.githubusercontent.com/UCSantaCruzComputationalGenomicsLa
 Потому пробел.
 
 Потом строки название сборки пробел путь к фасте.
+
+Дополнительные параметры:
+
+```
+--defaultCores 192 --defaultMemory 1000G
+```
