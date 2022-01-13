@@ -151,7 +151,7 @@ simRat_chr6 https://raw.githubusercontent.com/UCSantaCruzComputationalGenomicsLa
 
 ### Типичные ошибки
 
-В хедерах фасты НЕ ДОЛДЖНО БЫТЬ пробелов
+В хедерах фасты НЕ ДОЛЖНО БЫТЬ пробелов
 
 ```
 RuntimeError: The fasta header 'GWHAAFB00000002 OriSeqID=tig00000001    Len=266355 GWHAAFB00000002      OriSeqID=tig00000001    Len=266355' contains spaces or tabs. These characters will cause issues in space-separated formats like MAF, and may not function properly when viewed in a browser. Please remove these characters from the input headers and try again.
