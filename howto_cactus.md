@@ -101,6 +101,21 @@ source venv/bin/activate
 export PATH=$(pwd)/bin:$PATH
 export PYTHONPATH=$(pwd)/lib:$PYTHONPATH
 ```
+Можно создать файл activate.sh в папке venv, чтобы не писать три команды отдельно:
+
+```bash
+vim activate.sh
+```
+ Внутри файла пишем:
+ ```bash
+ source venv/bin/activate
+ export PATH=$(pwd)/bin:$PATH
+ export PYTHONPATH=$(pwd)/lib:$PYTHONPATH
+ ```
+ Далее активируем окружение каткуса с уже указанными путями через команду:
+ ```bash
+ source venv/activate.sh
+ ```
 
 Файл конфига:
 
