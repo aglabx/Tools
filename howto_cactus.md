@@ -57,6 +57,14 @@ Precompiled binaries can be found on the Releases Page. Download by clicking the
 
 **Но должно быть virtualenv. Если его нет то будет ошибка тогда попросить администратора поставить sudo apt install virtualenv**
 
+**Предварительно лучше проверить версию rdflib-jsonld. Важно чтобы rdflib-jsonld<0.6.0 rdflib-jsonld>=0.3.0. Если версия именно от 0.6.0, то необходимо ГЛОБАЛЬНО установить rdflib-jsonld==0.5.0**
+
+Устанавливаем, если необходимо, rdflib-jsonld:
+```bash
+pip install rdflib-jsonld==0.5.0
+```
+Дальше уже собираем кактус
+
 ```bash
 wget https://github.com/ComparativeGenomicsToolkit/cactus/releases/download/v2.0.4/cactus-bin-v2.0.4.tar.gz
 tar -xzf "cactus-bin-v2.0.4.tar.gz"
