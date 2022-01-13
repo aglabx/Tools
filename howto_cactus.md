@@ -37,6 +37,8 @@ Precompiled binaries can be found on the Releases Page. Download by clicking the
 
 Жамкаем Releases Page. Это ссылка https://github.com/ComparativeGenomicsToolkit/cactus/releases
 
+У нас линукс и выбираем Pre-compiled Binaries Linux Tarball
+
 Наша ссылка для скачивания https://github.com/ComparativeGenomicsToolkit/cactus/releases/download/v2.0.4/cactus-bin-v2.0.4.tar.gz
 
 Наша инструкция тут же Install instructions in BIN-INSTALL.md https://github.com/ComparativeGenomicsToolkit/cactus/blob/v2.0.4/BIN-INSTALL.md
@@ -91,9 +93,29 @@ cactus ./jobstore ./examples/evolverMammals.txt ./evolverMammals.hal --realTimeL
 
 Конец.
 
+Для входа в окружения надо:
 
+```bash
+cd "cactus-bin-v2.0.4.tar.gz"
+source venv/bin/activate
+export PATH=$(pwd)/bin:$PATH
+export PYTHONPATH=$(pwd)/lib:$PYTHONPATH
+```
 
+Файл конфига:
 
+```text
+((simHuman_chr6:0.144018,(simMouse_chr6:0.084509,simRat_chr6:0.091589)mr:0.271974):0.020593,(simCow_chr6:0.18908,simDog_chr6:0.16303):0.032898);
 
+simCow_chr6 https://raw.githubusercontent.com/UCSantaCruzComputationalGenomicsLab/cactusTestData/master/evolver/mammals/loci1/simCow.chr6
+simDog_chr6 https://raw.githubusercontent.com/UCSantaCruzComputationalGenomicsLab/cactusTestData/master/evolver/mammals/loci1/simDog.chr6
+simHuman_chr6 https://raw.githubusercontent.com/UCSantaCruzComputationalGenomicsLab/cactusTestData/master/evolver/mammals/loci1/simHuman.chr6
+simMouse_chr6 https://raw.githubusercontent.com/UCSantaCruzComputationalGenomicsLab/cactusTestData/master/evolver/mammals/loci1/simMouse.chr6
+simRat_chr6 https://raw.githubusercontent.com/UCSantaCruzComputationalGenomicsLab/cactusTestData/master/evolver/mammals/loci1/simRat.chr6
+```
 
-У нас линукс и выбираем Pre-compiled Binaries Linux Tarball
+Это дерево первой строкой.
+
+Потому пробел.
+
+Потом строки название сборки пробел путь к фасте.
