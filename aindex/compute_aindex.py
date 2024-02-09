@@ -59,6 +59,14 @@ if __name__ == '__main__':
     path_to_aindex = args["path_to_aindex"]
 
     # Check if input required files exist
+    ## Add format resolution postfix, depending on input format
+    if reads_type == 'fastq':
+        reads_file = ",".join([f"{file}.fastq" for file in reads_file.split(',')])
+    elif reads_type == 'fasta':
+        reads_file = ",".join([f"{file}.fasta" for file in reads_file.split(',')])
+    elif reads_type == 'se':
+        reads_file = f"{reads_file}.fastq"
+    
     required_files = [reads_file.split(",")]
     missing_files = [file for file in required_files if file and not os.path.exists(file)]
 
@@ -78,7 +86,7 @@ if __name__ == '__main__':
         local_files = reads_file.split(",")
         for file_name in local_files:
             command = "gzip -d %s" % file_name
-            runner.run(command)
+            runner(command)
 
     if not jf2_file and not index_prefix:
         if reads_type == "reads":
@@ -86,14 +94,14 @@ if __name__ == '__main__':
                 f"python {path_to_aindex}/reads_to_fasta.py -i {reads_file} -o {prefix}.fa",
                 f"jellyfish count -m 23 -t {threads} -s {memory}G -C -L {lu} -o {prefix}.23.jf2 {prefix}.fa",
             ]
-            runner.run(commands)
+            runner(commands)
             if interactive:
                 input("Continue?")
         elif reads_type == "fasta" or reads_type == "fastq" or reads_type == "se":
             commands = [
                 f"jellyfish count -m 23 -t %s -s %sG -C -L %s -o %s.23.jf2 %s" % (threads, memory, lu, prefix, reads_file.replace(",", " ")),
             ]
-            runner.run(commands)
+            runner(commands)
             if interactive:
                 input("Continue?")
 
@@ -126,7 +134,7 @@ if __name__ == '__main__':
                 f"{path_to_aindex}/V2_converter.exe {reads_file.replace(',', ' ')} - se {prefix}.reads",   
             ]
 
-        runner.run(commands)
+        runner(commands)
 
         ### here we expect that reads file is created
         if not os.path.exists("%s.reads" % prefix):
@@ -143,13 +151,13 @@ if __name__ == '__main__':
                 f"jellyfish dump -t -c -o {prefix}.23.dat {jf2_file}",
             ]
 
-        runner.run(commands)
+        runner(commands)
 
         if sort_dat_file:
             commands = [
                 f"sort -k2nr {prefix}.23.dat > {prefix}.23.sdat",
             ]
-            runner.run(commands)
+            runner(commands)
     
     
         commands = [
@@ -158,13 +166,13 @@ if __name__ == '__main__':
             f"{path_to_aindex}/compute_mphf_seq.exe {prefix}.23.kmers {prefix}.23.pf",
             f"{path_to_aindex}/compute_index.exe {prefix}.23.dat {prefix}.23.pf {prefix}.23 {threads} 0",
         ]
-        runner.run(commands)
+        runner(commands)
 
     if not only_index:
         commands = [
             f"{path_to_aindex}/compute_aindex.exe {prefix}.reads {prefix}.23.pf {prefix}.23 {prefix}.23 {threads} 23 {prefix}.23.tf.bin",
         ]
-        runner.run(commands)
+        runner(commands)
 
     if make_kmers:
         commands = [
@@ -175,4 +183,4 @@ if __name__ == '__main__':
             f"rm {prefix}.23.dat {prefix}.23.kmers {prefix}.23.jf2",
         ]
 
-    runner.run(commands)
+    runner(commands)
