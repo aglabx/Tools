@@ -32,7 +32,7 @@ if __name__ == '__main__':
     parser.add_argument('--index', help='Index prefix if exists (None)', required=False, default=None)
     parser.add_argument('-t', help='Reads type reads, fasta, fastq, se (reads)', required=False, default="fastq")
     parser.add_argument('-o', help='Output prefix', required=True)
-    parser.add_argument('-H', help='Build header file for fasta', required=False, default=True)
+    parser.add_argument('-H', help='Build header file for fasta', required=False, default=False)
     parser.add_argument('--lu', help='-L for jellyfish', required=False, default=0)
     parser.add_argument('-s', help='Sort dat file (None)', required=False, default=None)
     parser.add_argument('--interactive', help='Interactive (False)', required=False, default=None)
