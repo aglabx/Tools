@@ -118,12 +118,12 @@ if __name__ == '__main__':
                 ]                
         if reads_type == "fastq":
             commands = [
-                f"{path_to_aindex}/V2_converter.exe {reads_file.replace(",", " ")} fastq {prefix}.reads",   
+                f"{path_to_aindex}/V2_converter.exe {reads_file.replace(',', ' ')} fastq {prefix}.reads",   
             ]
 
         if reads_type == "se":
             commands = [
-                f"{path_to_aindex}/V2_converter.exe {reads_file.replace(",", " ")} - se {prefix}.reads",   
+                f"{path_to_aindex}/V2_converter.exe {reads_file.replace(',', ' ')} - se {prefix}.reads",   
             ]
 
         runner.run(commands)
