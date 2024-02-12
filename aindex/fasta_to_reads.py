@@ -5,8 +5,8 @@
 # @author: Aleksey Komissarov
 # @contact: ad3002@gmail.com
 
-import sys
 import argparse
+import sys
 
 # from trseeker.seqio.fasta_file import sc_iter_fasta
 
