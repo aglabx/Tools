@@ -9,7 +9,6 @@ import sys
 import argparse
 
 if __name__ == "__main__":
-
     parser = argparse.ArgumentParser(description="Reads to fasta.")
     parser.add_argument("-i", "--input", help="Reads input", required=True)
     parser.add_argument("-o", "--output", help="Fasta output", required=True)

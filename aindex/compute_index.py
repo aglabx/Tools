@@ -27,7 +27,6 @@ cut -f1 pe500.mtDNA.23.dat > pe500.mtDNA.23.kmers
 """
 
 if __name__ == "__main__":
-
     parser = argparse.ArgumentParser(description="Compute index from jf2 file.")
     parser.add_argument("-j", help="JF2 file if exists (None)", required=True)
     parser.add_argument("-o", help="Output prefix", required=True)

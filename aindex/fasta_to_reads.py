@@ -37,7 +37,6 @@ def sc_iter_fasta_brute(file_name, inmem=False):
 
 
 if __name__ == "__main__":
-
     parser = argparse.ArgumentParser(description="Fasta to reads.")
     parser.add_argument("-i", "--input", help="Fasta input", required=True)
     parser.add_argument("-o", "--output", help="Reads output", required=True)
