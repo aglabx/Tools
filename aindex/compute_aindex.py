@@ -86,7 +86,7 @@ if __name__ == "__main__":
     path_to_aindex = args["path_to_aindex"]
 
     # Check if input required files exist
-    required_files = [reads_file.split(",")]
+    required_files = reads_file.split(",")
     missing_files = [
         file for file in required_files if file and not os.path.exists(file)
     ]
